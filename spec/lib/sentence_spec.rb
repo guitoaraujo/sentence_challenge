@@ -10,7 +10,7 @@ describe Sentence do
 
     context 'when it is a valid sentence' do
       context 'when it is a multiple words sentence' do
-        let(:sentence) { '   This is a     very good     example of a     valid sentence  !!      ' }
+        let(:sentence) { '   This is a  @@@ #$$  very good   ()()((()))  example of a     valid sentence  !!      ' }
 
         it_behaves_like 'returns the right response', 8
       end
@@ -41,7 +41,7 @@ describe Sentence do
         it_behaves_like 'returns the right response', StandardError.new('Sentence can not be an empty String!')
       end
 
-      context 'when sentence is an empty String' do
+      context 'when sentence has no letters' do
         let(:sentence) { '%%%%% $$$$ #####' }
 
         it_behaves_like 'returns the right response', StandardError.new('Invalid sentence!')
